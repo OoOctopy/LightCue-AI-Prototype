@@ -1,0 +1,41 @@
+session_id,hrv_change_pct,task_type,mode,strategy,goal_support,data_source
+001,-13.4,Ideation,Default,S1,2.9,simulated
+002,-11.2,Visual Design,Default,S2,4.1,simulated
+003,-9.6,Writing,Default,S1,3.1,simulated
+004,-8.1,Research,Default,S2,4.3,simulated
+005,-6.4,Ideation,Default,S1,4.1,simulated
+006,-4.7,Visual Design,Default,S2,3.0,simulated
+007,-3.1,Writing,Default,S1,4.2,simulated
+008,2.8,Research,Default,S2,3.0,simulated
+009,4.9,Ideation,Default,S1,4.2,simulated
+010,6.3,Visual Design,Default,S2,2.9,simulated
+011,7.7,Writing,Default,S1,3.0,simulated
+012,9.2,Research,Default,S2,4.4,simulated
+013,11.5,Ideation,Default,S1,3.1,simulated
+014,13.1,Visual Design,Default,S2,4.1,simulated
+015,-10.4,Writing,Default,S1,3.0,simulated
+016,-5.6,Research,Default,S2,3.0,simulated
+017,3.9,Ideation,Default,S1,4.5,simulated
+018,8.6,Visual Design,Default,S2,4.3,simulated
+019,-2.4,Writing,Default,S1,4.4,simulated
+020,12.0,Research,Default,S2,4.1,simulated
+021,-13.0,Ideation,Creative,S3,3.2,simulated
+022,-11.2,Visual Design,Creative,S4,4.4,simulated
+023,-9.6,Writing,Creative,S3,3.1,simulated
+024,-7.7,Research,Creative,S4,4.2,simulated
+025,-6.4,Ideation,Creative,S3,4.6,simulated
+026,-4.7,Visual Design,Creative,S4,3.0,simulated
+027,-2.7,Writing,Creative,S3,4.3,simulated
+028,2.8,Research,Creative,S4,3.1,simulated
+029,4.9,Ideation,Creative,S3,4.7,simulated
+030,6.7,Visual Design,Creative,S4,3.2,simulated
+031,7.7,Writing,Creative,S3,3.1,simulated
+032,9.2,Research,Creative,S4,4.3,simulated
+033,11.9,Ideation,Creative,S3,3.2,simulated
+034,13.1,Visual Design,Creative,S4,4.5,simulated
+035,-10.4,Writing,Creative,S3,3.1,simulated
+036,-5.2,Research,Creative,S4,3.2,simulated
+037,3.9,Ideation,Creative,S3,4.5,simulated
+038,8.6,Visual Design,Creative,S4,4.1,simulated
+039,-2.0,Writing,Creative,S3,4.5,simulated
+040,12.0,Research,Creative,S4,4.2,simulated

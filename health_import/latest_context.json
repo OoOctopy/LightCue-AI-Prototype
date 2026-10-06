@@ -1,0 +1,20 @@
+{
+  "sample_time": "2026-10-05T22:36:25+08:00",
+  "current_hrv_ms": 35.4757,
+  "simultaneous_sample_count": 1,
+  "baseline_window_days": 7,
+  "baseline_sample_count": 37,
+  "baseline_minimum_samples": 5,
+  "baseline_hrv_ms": 47.4482,
+  "hrv_change_pct": -25.232780168689217,
+  "input_source": "apple_health_export",
+  "use": "historical_replay",
+  "preference_history_source": "simulated",
+  "hrv_records": 824,
+  "invalid_records": 0,
+  "duplicates": 0,
+  "valid_unique_samples": 824,
+  "first_sample_time": "2026-02-26T21:13:20+08:00",
+  "demo_task": "Ideation",
+  "demo_mode": "Creative"
+}

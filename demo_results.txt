@@ -1,0 +1,55 @@
+LightCue AI | 40 simulated sessions | weighted KNN k=3
+Scores reflect synthetic preferences; HRV direction is not interpreted as good/bad.
+
+Current Session | HRV +3.9% | Ideation | Default
+  S1 Stable: predicted 4.39/5
+    #017: HRV +3.9%, Ideation, feedback 4.5, distance 0.000, weight 66.7%
+    #009: HRV +4.9%, Ideation, feedback 4.2, distance 0.100, weight 22.2%
+    #005: HRV -6.4%, Ideation, feedback 4.1, distance 0.250, weight 11.1%
+  S2 Focus Cue: predicted 3.00/5
+    #006: HRV -4.7%, Visual Design, feedback 3.0, distance 0.506, weight 33.9%
+    #008: HRV +2.8%, Research, feedback 3.0, distance 0.512, weight 33.5%
+    #016: HRV -5.6%, Research, feedback 3.0, distance 0.528, weight 32.6%
+Recommendation: S1 Stable | score gap 1.39
+Evidence note: at least one candidate relies entirely on other task types.
+
+Current Session | HRV +10.0% | Ideation | Default
+  S1 Stable: predicted 3.29/5
+    #013: HRV +11.5%, Ideation, feedback 3.1, distance 0.150, weight 50.0%
+    #001: HRV -13.4%, Ideation, feedback 2.9, distance 0.340, weight 25.6%
+    #005: HRV -6.4%, Ideation, feedback 4.1, distance 0.360, weight 24.4%
+  S2 Focus Cue: predicted 4.27/5
+    #012: HRV +9.2%, Research, feedback 4.4, distance 0.506, weight 33.7%
+    #002: HRV -11.2%, Visual Design, feedback 4.1, distance 0.514, weight 33.3%
+    #018: HRV +8.6%, Visual Design, feedback 4.3, distance 0.519, weight 33.0%
+Recommendation: S2 Focus Cue | score gap 0.97
+Evidence note: at least one candidate relies entirely on other task types.
+
+Current Session | HRV +3.9% | Ideation | Creative
+  S3 Creative Drift: predicted 4.56/5
+    #037: HRV +3.9%, Ideation, feedback 4.5, distance 0.000, weight 66.7%
+    #029: HRV +4.9%, Ideation, feedback 4.7, distance 0.100, weight 22.2%
+    #025: HRV -6.4%, Ideation, feedback 4.6, distance 0.250, weight 11.1%
+  S4 Creative Cue: predicted 3.10/5
+    #026: HRV -4.7%, Visual Design, feedback 3.0, distance 0.506, weight 33.6%
+    #028: HRV +2.8%, Research, feedback 3.1, distance 0.512, weight 33.3%
+    #036: HRV -5.2%, Research, feedback 3.2, distance 0.517, weight 33.0%
+Recommendation: S3 Creative Drift | score gap 1.46
+Evidence note: at least one candidate relies entirely on other task types.
+
+Current Session | HRV +10.0% | Ideation | Creative
+  S3 Creative Drift: predicted 3.56/5
+    #033: HRV +11.9%, Ideation, feedback 3.2, distance 0.190, weight 44.0%
+    #021: HRV -13.0%, Ideation, feedback 3.2, distance 0.300, weight 30.2%
+    #025: HRV -6.4%, Ideation, feedback 4.6, distance 0.360, weight 25.8%
+  S4 Creative Cue: predicted 4.27/5
+    #032: HRV +9.2%, Research, feedback 4.3, distance 0.506, weight 33.7%
+    #022: HRV -11.2%, Visual Design, feedback 4.4, distance 0.514, weight 33.3%
+    #038: HRV +8.6%, Visual Design, feedback 4.1, distance 0.519, weight 33.0%
+Recommendation: S4 Creative Cue | score gap 0.71
+Evidence note: at least one candidate relies entirely on other task types.
+
+Leave-one-out score prediction (40 held-out records)
+KNN mean absolute error: 0.275 score points
+Strategy-mean baseline error: 0.687
+Synthetic score reconstruction only; no real-user efficacy or causal validation.
