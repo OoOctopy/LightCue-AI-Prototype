@@ -1,0 +1,5 @@
+# LightCue AI Prototype - runtime dependencies
+# Verified with Python 3.12.14; Python 3.12 is recommended.
+# No third-party Python packages are required.
+# Model, XML importer, and tests use the Python standard library only.
+# Portfolio/image authoring tools are separate from the prototype runtime.

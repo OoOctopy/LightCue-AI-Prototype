@@ -1,0 +1,28 @@
+{
+  "session_id": "replace-with-unique-id",
+  "hrv_change_pct": null,
+  "task_type": "Ideation",
+  "mode": "Creative",
+  "strategy": "S3",
+  "data_source": "real",
+  "experience_completed": false,
+  "ratings": {
+    "task_effectiveness": null,
+    "cognitive_balance": null,
+    "intervention_timing": null,
+    "visual_comfort": null,
+    "stability": null,
+    "acceptance": null
+  },
+  "raw_metrics": {
+    "completion_time_minutes": null,
+    "accuracy_pct": null,
+    "output_count": null,
+    "hrv_before_ms": null,
+    "hrv_after_ms": null,
+    "manual_adjustment_count": null,
+    "lighting_adjustment_count": null,
+    "total_brightness_change_pct": null,
+    "total_temperature_change_k": null
+  }
+}

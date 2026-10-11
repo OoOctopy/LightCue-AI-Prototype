@@ -1,0 +1,57 @@
+DEMO ONLY: 16 newly constructed six-rating records, independent of legacy 40-session dataset.
+Six-dimensional prototype | Ideation | Creative | HRV +3.9%
+Preference history: simulated; weights are design settings, not learned weights.
+
+S3 Creative Drift | weighted score 4.33/5
+  task_effectiveness: 4.30/5 | weight 16.7%
+  cognitive_balance: 4.06/5 | weight 16.7%
+  intervention_timing: 4.19/5 | weight 16.7%
+  visual_comfort: 4.60/5 | weight 16.7%
+  stability: 4.70/5 | weight 16.7%
+  acceptance: 4.14/5 | weight 16.7%
+  #demo-S3-3 | distance 0.090 | similarity 47.1%
+  #demo-S3-5 | distance 0.110 | similarity 41.2%
+  #demo-S3-9 | distance 0.510 | similarity 11.8%
+
+S4 Creative Cue | weighted score 3.05/5
+  task_effectiveness: 3.00/5 | weight 16.7%
+  cognitive_balance: 3.14/5 | weight 16.7%
+  intervention_timing: 2.81/5 | weight 16.7%
+  visual_comfort: 3.20/5 | weight 16.7%
+  stability: 3.10/5 | weight 16.7%
+  acceptance: 3.06/5 | weight 16.7%
+  #demo-S4-3 | distance 0.090 | similarity 47.1%
+  #demo-S4-5 | distance 0.110 | similarity 41.2%
+  #demo-S4-9 | distance 0.510 | similarity 11.8%
+
+Recommendation: S3
+HRV is context only; cognitive rating requires subjective feedback, not inferred psychological stress.
+No hardware control or live HealthKit connection.
+Six-dimensional prototype | Ideation | Creative | HRV +10.0%
+Preference history: simulated; weights are design settings, not learned weights.
+
+S3 Creative Drift | weighted score 3.56/5
+  task_effectiveness: 3.00/5 | weight 16.7%
+  cognitive_balance: 3.14/5 | weight 16.7%
+  intervention_timing: 2.82/5 | weight 16.7%
+  visual_comfort: 4.60/5 | weight 16.7%
+  stability: 4.70/5 | weight 16.7%
+  acceptance: 3.07/5 | weight 16.7%
+  #demo-S3-11 | distance 0.100 | similarity 44.0%
+  #demo-S3-9 | distance 0.100 | similarity 44.0%
+  #demo-S3-5 | distance 0.500 | similarity 12.0%
+
+S4 Creative Cue | weighted score 3.83/5
+  task_effectiveness: 4.30/5 | weight 16.7%
+  cognitive_balance: 4.06/5 | weight 16.7%
+  intervention_timing: 4.18/5 | weight 16.7%
+  visual_comfort: 3.20/5 | weight 16.7%
+  stability: 3.10/5 | weight 16.7%
+  acceptance: 4.13/5 | weight 16.7%
+  #demo-S4-11 | distance 0.100 | similarity 44.0%
+  #demo-S4-9 | distance 0.100 | similarity 44.0%
+  #demo-S4-5 | distance 0.500 | similarity 12.0%
+
+Recommendation: S4
+HRV is context only; cognitive rating requires subjective feedback, not inferred psychological stress.
+No hardware control or live HealthKit connection.

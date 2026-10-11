@@ -8,6 +8,7 @@ import argparse
 import csv
 from dataclasses import dataclass
 import math
+import sys
 from pathlib import Path
 
 TASKS = ("Ideation", "Visual Design", "Writing", "Research")
@@ -151,6 +152,10 @@ def evaluate(sessions, k=3):
 
 
 def main():
+    if "--multidim" in sys.argv[1:]:
+        from lightcue_multidim import main as multidim_main
+        multidim_main([arg for arg in sys.argv[1:] if arg != "--multidim"])
+        return
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--csv", type=Path, default=CSV_PATH)
     parser.add_argument("--hrv", type=float, help="relative change in percentage points, e.g. -10.3")

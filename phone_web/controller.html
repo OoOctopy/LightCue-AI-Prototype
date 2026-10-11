@@ -1,0 +1,19 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LightCue 手机模拟灯控制</title><style>
+body{font:16px system-ui;background:#f5f1fc;color:#302c3b;margin:0}main{max-width:860px;margin:auto;padding:28px}h1{color:#7824ff}section{background:white;padding:24px;border-radius:18px;margin:18px 0}label{display:block;margin:12px 0}input,select,button{font:inherit;padding:12px;border:1px solid #c9b2f5;border-radius:10px}button{background:#7824ff;color:white;cursor:pointer;margin:5px}button:disabled{opacity:.5}a{color:#7824ff}.status{background:#f4ff00;padding:15px;border-radius:10px}pre{white-space:pre-wrap;font:14px system-ui}small{color:#746a84}.grid{display:flex;flex-wrap:wrap;gap:15px}
+</style><main><h1>LightCue · 手机模拟灯</h1><p>电脑发出建议，手机屏幕缓慢改变颜色与明暗。</p><p class="status" id="status">正在检查连接…</p>
+<section><h2>1. 手机打开模拟灯</h2><p>在手机浏览器打开 <b>电脑连接地址:8765/screen</b>。首次连接请在手机页面点“开始”。</p><a href="/screen" target="_blank">在本机预览模拟灯</a><p><small>保持手机系统亮度固定。页面只模拟色温和明暗，不输出校准灯光。</small></p></section>
+<section><h2>2. 运行六维推荐</h2><div class="grid"><label>HRV 相对变化（%）<br><input id="hrv" type="number" value="10" step=".1"></label><label>任务<br><select id="task"><option>Ideation</option><option>Visual Design</option><option>Writing</option><option>Research</option></select></label><label>模式<br><select id="mode"><option>Creative</option><option>Default</option></select></label><label>偏好历史<br><select id="source"><option value="demo">六维模拟演示</option><option value="real">真实反馈历史</option></select></label></div><button id="recommend">计算并发送建议</button><p><small>权重读取现有配置。真实反馈不足或暂缓推荐时，不改变手机显示。</small></p></section>
+<section><h2>3. 单独检查颜色与明暗</h2><div id="manual"></div><p><small>这些按钮是手动控制测试，不代表 AI 的选择。</small></p></section>
+<section><h2>运行结果</h2><pre id="result">还没有运行推荐。</pre><p id="error" role="alert"></p></section></main>
+<script>
+const $=id=>document.getElementById(id);let busy=false;
+async function post(path,data){const response=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});const r=await response.json();if(!response.ok)throw Error(r.error||'请求失败');return r}
+function display(s){$('status').textContent=s.connected_screens===0?'手机页面尚未连接或已断开':s.render_confirmed?'手机页面已确认完成过渡（请肉眼核对屏幕）':'手机已连接，等待页面确认过渡';
+if(s.result){let lines=[s.result.source==='simulated'?'模拟偏好演示':'真实反馈历史',s.result.recommendation?'推荐 '+s.result.recommendation:'暂缓推荐：'+s.result.reason];for(const [strategy,p] of Object.entries(s.result.predictions)){lines.push(strategy+' 综合评分 '+p.weighted_score.toFixed(2)+'/5');for(const [key,score] of Object.entries(p.dimension_scores))lines.push('  '+key+': '+(score===null?'不参与':score.toFixed(2))+'，权重 '+(s.result.weights[key]*100).toFixed(1)+'%')} $('result').textContent=lines.join('\n')}
+else if(s.strategy)$('result').textContent=s.decision+'\n'+s.strategy+' / 目标 '+s.light.kelvin+'K / 页面明暗 '+s.light.brightness+'%';}
+async function send(path,data){if(busy)return;busy=true;$('error').textContent='';try{display(await post(path,data))}catch(e){$('error').textContent=e.message}finally{busy=false}}
+$('recommend').onclick=()=>send('/api/recommend',{hrv:Number($('hrv').value),task:$('task').value,mode:$('mode').value,source:$('source').value});
+for(const [s,label] of Object.entries({S1:'S1 · 稳定',S2:'S2 · 专注提示',S3:'S3 · 创作漂移',S4:'S4 · 创作提示'})){const b=document.createElement('button');b.textContent=label;b.onclick=()=>send('/api/manual',{strategy:s});$('manual').append(b)}
+async function poll(){try{const r=await fetch('/api/state',{cache:'no-store'});if(!r.ok)throw Error('服务异常');display(await r.json())}catch(e){$('status').textContent='电脑服务已断开，手机保留最近设置'}setTimeout(poll,1000)}poll();
+</script></html>

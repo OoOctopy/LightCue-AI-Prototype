@@ -1,0 +1,15 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LightCue 模拟灯</title><style>
+html,body{margin:0;background:#000;color:white;font:15px system-ui;height:100%;overflow:hidden}#lamp{position:fixed;inset:0;background:#ffe4ce;opacity:0;transition:background-color 3s linear,opacity 3s linear}#info{position:fixed;bottom:15px;left:15px;right:15px;background:#000a;padding:12px;border-radius:12px}#start{position:fixed;inset:0;display:grid;place-content:center;background:#211431;text-align:center;padding:25px}button{padding:16px 30px;font:20px system-ui;border:0;border-radius:15px;background:#f4ff00;color:#7824ff}small{display:block;margin-top:7px;line-height:1.5}#hint{color:#ddd}
+</style><div id="lamp"></div><div id="info"><b id="status">等待连接</b><small id="hint">这是屏幕模拟，不是校准灯光。不会修改系统亮度。</small></div><div id="start"><h1>LightCue 模拟灯</h1><p>请固定系统亮度并关闭自动亮度。</p><button id="begin">开始</button><p>屏幕将跟随电脑改变颜色和页面明暗。</p></div>
+<script>
+const client='screen-'+Math.random().toString(36).slice(2);let seq=-1,rendered=null,timer=null,readyAt=0;
+async function contact(extra={}){const r=await fetch('/api/screen',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({client,...extra})});if(!r.ok)throw Error('连接异常');return r.json()}
+async function poll(){try{const state=await contact();document.getElementById('status').textContent=state.strategy?state.strategy+' · '+state.light.name:'已连接，等待电脑发送';
+if(state.light){document.getElementById('hint').textContent='模拟目标 '+state.light.kelvin+'K · 页面明暗 '+state.light.brightness+'% · 缓慢过渡（非校准值）';
+if(state.seq!==seq){seq=state.seq;rendered=null;readyAt=Date.now()+3100;clearTimeout(timer);const lamp=document.getElementById('lamp');lamp.style.backgroundColor=state.light.color;lamp.style.opacity=state.light.brightness/100;
+const target=seq;timer=setTimeout(async()=>{if(seq!==target||document.hidden)return;try{await contact({ack:target});rendered=target}catch(e){}},3100)}
+else if(rendered===null&&Date.now()>=readyAt&&!document.hidden){await contact({ack:seq});rendered=seq}}
+}catch(e){document.getElementById('status').textContent='连接已断开，保留最近显示'}setTimeout(poll,1000)}
+document.getElementById('begin').onclick=async()=>{document.getElementById('start').style.display='none';try{await document.documentElement.requestFullscreen()}catch(e){}poll()};
+</script></html>

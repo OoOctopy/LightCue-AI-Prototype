@@ -4,3 +4,9 @@ __pycache__/
 venv/
 .vscode/
 .DS_Store
+data/feedback_v2.jsonl
+health_import/
+data/*.jsonl
+completed_feedback*.json
+*.xml
+*.zip
